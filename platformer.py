@@ -29,3 +29,4 @@ class Actor:
     def __init__(self):
         self.moving = Moving()
         self.motion = Vector2()
+        self.air_frames = 0
