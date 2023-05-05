@@ -26,7 +26,12 @@ class Moving:
         return self.right or self.left
 
 class Actor:
-    def __init__(self):
+    def __init__(self, speed, gravity, jump_force, max_fall_speed):
         self.moving = Moving()
         self.motion = Vector2()
         self.air_frames = 0
+
+        self.speed = speed
+        self.gravity = gravity
+        self.jump_force = jump_force
+        self.max_fall_speed = max_fall_speed
