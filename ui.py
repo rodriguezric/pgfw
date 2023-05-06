@@ -164,3 +164,16 @@ def popup_menu(text_lines):
     menu.rect.center = screen_rect.center
 
     return menu
+
+def scale_surf(scale_tuple):
+    def inner(surf):
+        return pygame.transform.scale(surf, scale_tuple)
+    return inner
+
+def get_surfs(path):
+    files = reversed(glob.glob(path))
+    return map(pygame.image.load, files)
+
+def get_scaled_surfs(path, scale_tuple):
+    return list(map(scale_surf(scale_tuple), get_surfs(path)))
+
