@@ -33,6 +33,7 @@ class Actor:
         self.motion = Vector2()
         self.air_frames = 0
         self.last_dir = Direction.RIGHT
+        self.animations = AnimationManager()
 
         self.speed = speed
         self.gravity = gravity
@@ -54,6 +55,9 @@ class Actor:
         while the actor is actually on the ground.
         '''
         return self.motion.y > self.gravity
+
+    def animate(self, name):
+        return self.animations.next(name)
         
 class AnimationManager:
     def __init__(self, frame_scale=5):
