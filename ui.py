@@ -3,6 +3,8 @@ import pygame
 import glob
 
 from framework.base import *
+from framework.event import MENU_MOVE_SOUND
+from framework.event import emit
 
 font = pygame.font.Font('fonts/prstart.ttf', TILE_SIZE)
 
@@ -102,11 +104,17 @@ class Cursor:
         self.rect.y = self.y + self.padding.top + self.idx * (TILE_SIZE + self.spacing)
 
     def move_up(self):
+        prev = self.idx
         self.idx = max(self.idx - 1, 0)
+        if self.idx != prev:
+            emit(MENU_MOVE_SOUND)
         self.update_rect()
 
     def move_down(self):
+        prev = self.idx
         self.idx = min(self.idx + 1, self.rows - 1)
+        if self.idx != prev:
+            emit(MENU_MOVE_SOUND)
         self.update_rect()
 
     def draw(self):
