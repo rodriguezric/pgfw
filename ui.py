@@ -6,7 +6,7 @@ from framework.base import *
 from framework.event import MENU_MOVE_SOUND
 from framework.event import emit
 
-font = pygame.font.Font('fonts/prstart.ttf', TILE_SIZE)
+font = pygame.font.Font('framework/fonts/prstart.ttf', TILE_SIZE)
 
 class Window:
     '''
