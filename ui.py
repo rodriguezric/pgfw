@@ -75,7 +75,6 @@ class TextLines:
         self.spacing = spacing
         self.x = x
         self.y = y
-        self.draw()
 
     def draw(self):
         for line, text in enumerate(self.text_lines):
